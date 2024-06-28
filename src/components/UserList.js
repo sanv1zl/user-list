@@ -45,12 +45,21 @@ const UserList = () => {
     }
   };
 
+  const updateUser = async (id, updatedUser) => {
+    try {
+      const response = await axios.put(`https://jsonplaceholder.typicode.com/users/${id}`, updatedUser);
+      setUsers(users.map(user => (user.id === id ? response.data : user)));
+    } catch (error) {
+      setError('Ошибка при обновлении пользователя');
+    }
+  };
+
   return (
     <UserListStyled>
       <AddUserForm addUser={addUser} />
       {error && <p>{error}</p>}
       {users.map(user => (
-        <UserCard key={user.id} user={user} deleteUser={deleteUser} />
+        <UserCard key={user.id} user={user} deleteUser={deleteUser} updateUser={updateUser} />
       ))}
     </UserListStyled>
   );
