@@ -47,12 +47,17 @@ const UserList = () => {
 
   const updateUser = async (id, updatedUser) => {
     try {
-      const response = await axios.put(`https://jsonplaceholder.typicode.com/users/${id}`, updatedUser);
-      setUsers(users.map(user => (user.id === id ? response.data : user)));
+      await axios.put(`https://jsonplaceholder.typicode.com/users/${id}`, updatedUser);
+      // Mock API does not actually update, so we update the state manually
+      setUsers(users.map(user => (user.id === id ? { ...user, ...updatedUser } : user)));
     } catch (error) {
+      console.error(error); // Log the error for debugging
+      // Update the state locally even if the API call fails
+      setUsers(users.map(user => (user.id === id ? { ...user, ...updatedUser } : user)));
       setError('Ошибка при обновлении пользователя');
     }
   };
+  
 
   return (
     <UserListStyled>
