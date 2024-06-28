@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+### ENGLISH INSTRUCTION
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# User Management App
 
-## Available Scripts
+This is a simple React application for managing a list of users. It demonstrates how to fetch data from an API, add new users, and delete existing users. The app uses Axios for making HTTP requests and Styled-Components for styling.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Fetches and displays a list of users from an API.
+- Allows adding a new user.
+- Allows deleting an existing user.
+- Uses Styled-Components for styling.
+- Includes unit tests for components.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+These instructions will help you set up and run the project on your local machine.
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js
+- npm (Node Package Manager)
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   git clone https://github.com/sanv1zl/user-app.git
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Navigate to the project directory:
 
-### `npm run eject`
+    cd user-app
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Install the dependencies:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Running the Application
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    npm start
 
-## Learn More
+### Running tests
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    npm test
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Usage
 
-### Code Splitting
+    Adding a User: Fill out the form at the top of the page with the user's name, email, and phone number, then click "Добавить".
+    Deleting a User: Click the "Удалить" button next to the user you want to delete.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Example
 
-### Analyzing the Bundle Size
+Here is a screenshot of the application in action:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![alt text](image.png)
 
-### Making a Progressive Web App
+### Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Feel free to submit issues and pull requests. Contributions are welcome!
 
-### Advanced Configuration
+### РУССКАЯ ИНСТРУКЦИЯ
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Приложение для управления пользователями
 
-### Deployment
+### Это простое React-приложение для управления списком пользователей. Оно демонстрирует, как получать данные из API, добавлять новых пользователей и удалять существующих. В приложении используется Axios для выполнения HTTP-запросов и Styled-Components для стилизации.
+Функционал
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    Получение и отображение списка пользователей из API.
+    Добавление нового пользователя.
+    Удаление существующего пользователя.
+    Использование Styled-Components для стилизации.
+    Включает модульные тесты для компонентов.
 
-### `npm run build` fails to minify
+### Начало работы
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Эти инструкции помогут вам настроить и запустить проект на вашем локальном компьютере.
+Требования
+
+    Node.js
+    npm (Node Package Manager)
+
+Установка
+
+    Клонируйте репозиторий:
+
+    git clone https://github.com/sanv1zl/user-app.git
+
+    Перейдите в каталог проекта:
+
+    cd user-app
+
+    Установите зависимости:
+
+    npm install
+
+Запуск приложения
+
+    npm start
+
+Запуск тестов
+
+    npm test
+
+Использование
+
+    Добавление пользователя: Заполните форму в верхней части страницы именем пользователя, электронной почтой и номером телефона, затем нажмите "Добавить".
+    Удаление пользователя: Нажмите кнопку "Удалить" рядом с пользователем, которого хотите удалить.
+
+Пример
+
+Вот скриншот приложения в действии:
+
+![alt text](image.png)
+
+Вклад в проект
+
+Не стесняйтесь отправлять замечания и запросы на добавление функций. Вклад приветствуется!
