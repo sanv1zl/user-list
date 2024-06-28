@@ -7,6 +7,7 @@
   flex-direction: column;
   align-items: center;
 }
+
 .card {
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -42,6 +43,7 @@
 .card button:hover {
   background-color: #ff7875;
 }
+
 .add-user-form {
   display: flex;
   flex-direction: column;

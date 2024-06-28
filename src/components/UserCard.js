@@ -33,19 +33,70 @@ const InputStyled = styled.input`
   border-radius: 4px;
 `;
 
+const ButtonStyled = styled.button`
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 4px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+const EditButton = styled(ButtonStyled)`
+  background-color: #007bff;
+  color: white;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+
+const SaveButton = styled(ButtonStyled)`
+  background-color: #28a745;
+  color: white;
+
+  &:hover {
+    background-color: #218838;
+  }
+`;
+
+const DeleteButton = styled(ButtonStyled)`
+  background-color: #dc3545;
+  color: white;
+
+  &:hover {
+    background-color: #c82333;
+  }
+`;
+
 const UserCard = ({ user, deleteUser, updateUser }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
   const [phone, setPhone] = useState(user.phone);
 
+  const handlePhoneChange = (e) => {
+    const value = e.target.value;
+    const regex = /^[0-9-()]*$/;
+    if (regex.test(value)) {
+      setPhone(value);
+    }
+  };
+
   const handleEdit = () => {
     setIsEditing(true);
   };
 
   const handleSave = () => {
-    updateUser(user.id, { name, email, phone });
-    setIsEditing(false);
+    if (name && email && phone) {
+      updateUser(user.id, { name, email, phone });
+      setIsEditing(false);
+    } else {
+      alert('Все поля должны быть заполнены');
+    }
   };
 
   return (
@@ -57,7 +108,7 @@ const UserCard = ({ user, deleteUser, updateUser }) => {
             <>
               <InputStyled type="text" value={name} onChange={(e) => setName(e.target.value)} />
               <InputStyled type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-              <InputStyled type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
+              <InputStyled type="tel" value={phone} onChange={handlePhoneChange} />
             </>
           ) : (
             <>
@@ -69,11 +120,11 @@ const UserCard = ({ user, deleteUser, updateUser }) => {
         </div>
       </UserInfo>
       {isEditing ? (
-        <button onClick={handleSave}>Сохранить</button>
+        <SaveButton onClick={handleSave}>Сохранить</SaveButton>
       ) : (
-        <button onClick={handleEdit}>Редактировать</button>
+        <EditButton onClick={handleEdit}>Редактировать</EditButton>
       )}
-      <button onClick={() => deleteUser(user.id)}>Удалить</button>
+      <DeleteButton onClick={() => deleteUser(user.id)}>Удалить</DeleteButton>
     </UserCardStyled>
   );
 };

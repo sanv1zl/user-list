@@ -20,6 +20,7 @@ const UserList = () => {
       setUsers(response.data);
     } catch (error) {
       setError('Ошибка при загрузке пользователей');
+      clearErrorMessage();
     }
   };
 
@@ -27,12 +28,19 @@ const UserList = () => {
     fetchData();
   }, []);
 
+  const clearErrorMessage = () => {
+    setTimeout(() => {
+      setError(null);
+    }, 3000);
+  };
+
   const addUser = async (user) => {
     try {
       const response = await axios.post('https://jsonplaceholder.typicode.com/users', user);
       setUsers([response.data, ...users]);
     } catch (error) {
       setError('Ошибка при добавлении пользователя');
+      clearErrorMessage();
     }
   };
 
@@ -41,23 +49,26 @@ const UserList = () => {
       await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
       setUsers(users.filter(user => user.id !== id));
     } catch (error) {
+      console.error(error); // Log the error for debugging
+      // Even if the API call fails, remove the user locally
+      setUsers(users.filter(user => user.id !== id));
       setError('Ошибка при удалении пользователя');
+      clearErrorMessage();
     }
   };
 
   const updateUser = async (id, updatedUser) => {
     try {
       await axios.put(`https://jsonplaceholder.typicode.com/users/${id}`, updatedUser);
-      // Mock API does not actually update, so we update the state manually
       setUsers(users.map(user => (user.id === id ? { ...user, ...updatedUser } : user)));
     } catch (error) {
       console.error(error); // Log the error for debugging
       // Update the state locally even if the API call fails
       setUsers(users.map(user => (user.id === id ? { ...user, ...updatedUser } : user)));
       setError('Ошибка при обновлении пользователя');
+      clearErrorMessage();
     }
   };
-  
 
   return (
     <UserListStyled>

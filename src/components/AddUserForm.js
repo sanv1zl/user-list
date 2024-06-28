@@ -32,19 +32,31 @@ const AddUserForm = ({ addUser }) => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
 
+  const handlePhoneChange = (e) => {
+    const value = e.target.value;
+    const regex = /^[0-9-()]*$/;
+    if (regex.test(value)) {
+      setPhone(value);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    addUser({ name, email, phone });
-    setName('');
-    setEmail('');
-    setPhone('');
+    if (name && email && phone) {
+      addUser({ name, email, phone });
+      setName('');
+      setEmail('');
+      setPhone('');
+    } else {
+      alert('Все поля должны быть заполнены');
+    }
   };
 
   return (
     <FormStyled onSubmit={handleSubmit}>
       <InputStyled type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Имя" required />
       <InputStyled type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
-      <InputStyled type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Телефон" required />
+      <InputStyled type="tel" value={phone} onChange={handlePhoneChange} placeholder="Телефон" required />
       <ButtonStyled type="submit">Добавить</ButtonStyled>
     </FormStyled>
   );

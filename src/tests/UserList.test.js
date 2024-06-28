@@ -16,7 +16,6 @@ test('fetches and displays users', async () => {
 
   render(<UserList />);
 
-  // Wait for the users to be fetched and displayed
   const userElements = await waitFor(() => screen.getAllByText(/@example.com/i));
   expect(userElements).toHaveLength(2);
   expect(screen.getByText('John Doe')).toBeInTheDocument();
